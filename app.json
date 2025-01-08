@@ -3,6 +3,7 @@
     "name": "pokenative",
     "slug": "pokenative",
     "version": "1.0.0",
+    "scheme": "pokenativelink",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
