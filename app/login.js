@@ -1,4 +1,4 @@
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function LoginPage() {
@@ -6,8 +6,22 @@ export default function LoginPage() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Page de Connexion</Text>
+      <Text style={{elevation: 8 , padding: 12, backgroundColor: "#F0F0F000"}}>Page de Connexion</Text>
       <Button title="Retour à l'accueil" onPress={() => router.push('/')} />
+      <Button title="Retour à l'accueil2" onPress={() => router.back()} />
+      <TouchableOpacity
+        onPress={() => {
+          console.log('Bouton back cliqué !');
+          router.back();
+        }}
+        style={{
+          marginTop: 20,
+          padding: 10,
+          backgroundColor: 'red',
+        }}
+      >
+        <Text style={{ color: 'white'}}>Retour</Text>
+      </TouchableOpacity>
     </View>
   );
 }
