@@ -1,5 +1,5 @@
 import { View, Text, Button, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, Link } from 'expo-router';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -21,6 +21,26 @@ export default function LoginPage() {
         }}
       >
         <Text style={{ color: 'white'}}>Retour</Text>
+      </TouchableOpacity>
+      <Link href="/" style={{
+        backgroundColor:"pink",
+        padding: 5,
+      }}>Retour sur index</Link>
+      <Link href={{pathname: "/pokemon/[id]", params: {id: 3}}} style={{
+        backgroundColor:"#5CEE9DFF",
+        padding: 5,
+      }}>Allons sur un pokemon</Link>
+      <TouchableOpacity
+        onPress={() => {
+          router.replace({pathname: "/pokemon/[id]", params: {id: 7}});
+        }}
+        style={{
+          marginTop: 20,
+          padding: 10,
+          backgroundColor: 'red',
+        }}
+      >
+        <Text style={{ color: 'white'}}>Sur pokemon avec router</Text>
       </TouchableOpacity>
     </View>
   );
