@@ -6,6 +6,7 @@ module.exports = {
         {
           alias: {
             '@/assets': './assets',
+            '@/components': './components',
           },
         },
       ],
@@ -18,6 +19,7 @@ module.exports = {
           allowUndefined: false,
         },
       ],
+      'react-native-reanimated/plugin',
     ],
   };
 

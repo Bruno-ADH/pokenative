@@ -1,43 +1,29 @@
+import react,{useEffect} from 'react';
 import { Link, useRouter } from 'expo-router';
 import { View, Text, Button, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import HomeIcon from "@/assets/home.svg";
 import home from "@/assets/icon.png";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ThemedText } from '../components/ThemedText'
+import { useThemeColors } from '../hooks/useThemeColor';
 
-const { width } = Dimensions.get('window');
-
-export default function HomePage() {
+export default function Index() {
   const router = useRouter()
-
+  const color = useThemeColors()
+  
   const handlePress = () => {
     router.push("/login")
   }
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Bienvenue sur la page d'accueil!</Text>
-      <Image
-        source={home}
-        style={{ width: width * 0.5, height: width * 0.5 }}
-      />
-       <HomeIcon width={32} height={32} fill="blue" />
-      <TouchableOpacity style={styles.touch} onPress={handlePress}>
-        <Text>Se connecter</Text>
-      </TouchableOpacity>
-      <Link href="/login" asChild>
-        <Button title="Se connecter" />
-      </Link>
-    </View>
+    <SafeAreaView style={[styles.container, {backgroundColor: color?.tint}]}>
+      <ThemedText variant="headline" color="grayWhite">Pokédex</ThemedText>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  touch: {
-    marginVertical: 40,
-    backgroundColor: "#FAFCA8FF",
-    padding: 15,
-    elevation: 30,
-    shadowColor: "#221E1AFF",
-    shadowOpacity: 0.1,
-    shadowRadius:5,
-    shadowOffset: {width: 0, height: 11}
-  }
+  container: {
+    flex: 1,
+  },
 })

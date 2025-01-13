@@ -28,7 +28,8 @@ export default {
       favicon: "./assets/favicon.png"
     },
     plugins: [
-      "expo-router"
+      "expo-router",
+      "expo-font"
     ],
     extra: {
       apiUrl: process.env.API_URL
