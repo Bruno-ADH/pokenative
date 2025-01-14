@@ -6,6 +6,7 @@ import home from "@/assets/icon.png";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemedText } from '../components/ThemedText'
 import { useThemeColors } from '../hooks/useThemeColor';
+import { Card } from '../components/Card';
 
 export default function Index() {
   const router = useRouter()
@@ -17,7 +18,10 @@ export default function Index() {
 
   return (
     <SafeAreaView style={[styles.container, {backgroundColor: color?.tint}]}>
-      <ThemedText variant="headline" color="grayWhite">Pokédex</ThemedText>
+      <Card>
+        <ThemedText variant="headline" color="grayDark">Pokédex</ThemedText>
+      </Card>
+      
     </SafeAreaView>
   );
 }

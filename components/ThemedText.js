@@ -7,10 +7,10 @@ import { useThemeColors } from "../hooks/useThemeColor";
  * @param {string} Props.color - Couleur du texte 
  */
 export function ThemedText(Props) {
-    const { variant, color, ...rest } = Props;
+    const { variant, color, style, ...rest } = Props;
     const colors = useThemeColors() ?? {}
 
-    return <Text style={[styles[variant ?? 'body3'],{color: colors[color ?? "grayWhite"]}]} {...rest}/>
+    return <Text style={[styles[variant ?? 'body3'],{color: colors[color ?? "grayWhite"]}, style]} {...rest}/>
 }
 
 const styles = StyleSheet.create({
