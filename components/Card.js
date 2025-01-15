@@ -14,5 +14,6 @@ export function Card (Props) {
 
 const styles = {
     borderRadius: 8,
+    overflow: "hidden",
     ...Shadows.dp2,
 }

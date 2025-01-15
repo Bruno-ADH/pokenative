@@ -15,39 +15,43 @@ export function ThemedText(Props) {
 
 const styles = StyleSheet.create({
     body3: {
+        fontFamily: "RobotoRegular",
         fontSize: 10,
         lineHeight: 16,
     },
     body1: {
+        fontFamily: "RobotoRegular",
         fontSize: 14,
         lineHeight: 16,
     },
     body2: {
+        fontFamily: "RobotoRegular",
         fontSize: 12,
         lineHeight: 16,
     },
     caption: {
+        fontFamily: "RobotoRegular",
         fontSize: 8,
         lineHeight: 12,
     },
     headline: {
+        fontFamily: "RobotoBold",
         fontSize: 24,
         lineHeight: 32,
-        fontWeight: "bold"
     },
     subtitle3: {
+        fontFamily: "RobotoBold",
         fontSize: 10,
         lineHeight: 16,
-        fontWeight: "bold"
     },
     subtitle1: {
+        fontFamily: "RobotoBold",
         fontSize: 14,
         lineHeight: 16,
-        fontWeight: "bold"
     },
     subtitle2: {
+        fontFamily: "RobotoBold",
         fontSize: 12,
         lineHeight: 16,
-        fontWeight: "bold"
     },
 })

@@ -2,30 +2,30 @@ import 'dotenv/config';
 
 export default {
   expo: {
-    name: "pokenative",
+    name: "Pokenative",
     slug: "pokenative",
     version: "1.0.0",
     scheme: "pokenativelink",
     orientation: "portrait",
-    icon: "./assets/icon.png",
+    icon: "./assets/images/pokeballSplash.png",
     userInterfaceStyle: "light",
     newArchEnabled: true,
     splash: {
-      image: "./assets/splash-icon.png",
+      image: "./assets/images/pokeballSplash.png",
       resizeMode: "contain",
-      backgroundColor: "#ffffff"
+      backgroundColor: "#DC0A2D",
     },
     ios: {
       supportsTablet: true
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: "./assets/adaptive-icon.png",
-        backgroundColor: "#ffffff"
+        foregroundImage: "./assets/images/pokeball.png",
+        backgroundColor: "#DC0A2D"
       }
     },
     web: {
-      favicon: "./assets/favicon.png"
+      favicon: "./assets/images/pokeball.png"
     },
     plugins: [
       "expo-router",
