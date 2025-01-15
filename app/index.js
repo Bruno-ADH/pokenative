@@ -1,6 +1,6 @@
 import react, { useEffect } from 'react';
 import { Link, useRouter } from 'expo-router';
-import { View, Text, Button, TouchableOpacity, Image, StyleSheet, Dimensions, FlatList, } from 'react-native';
+import { View, Text, Button, TouchableOpacity, Image, StyleSheet, Dimensions, FlatList, ActivityIndicator, } from 'react-native';
 import HomeIcon from "@/assets/home.svg";
 import home from "@/assets/icon.png";
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -9,7 +9,8 @@ import { useThemeColors } from '../hooks/useThemeColor';
 import { Card } from '../components/Card';
 import pokeball from '@/assets/images/pokeball.png'
 import { PokemonCard } from '../components/pokemon/PokemonCard';
-import { useFetchQuery } from '../hooks/useFetchQuery';
+import { useFetchQuery, useInfiniteFetchQuery } from '../hooks/useFetchQuery';
+import { getPokemonId } from '../functions/pokemon';
 
 export default function Index() {
   const router = useRouter()
@@ -18,9 +19,8 @@ export default function Index() {
   //   name: 'Pokémon name',
   //   id: k + 1,
   // }))
-
-  const {data} = useFetchQuery('/pokemon?limit=21')
-  const pokemons = data?.results ?? []
+  const {data, isFetching, fetchNextPage} = useInfiniteFetchQuery('/pokemon?limit=21')
+  const pokemons = data?.pages.flatMap((page) => page.results) ?? []
 
   const handlePress = () => {
     router.push("/login")
@@ -42,10 +42,14 @@ export default function Index() {
           numColumns={3}
           contentContainerStyle={[styles.gridGap, styles.list]}
           columnWrapperStyle={styles.gridGap}
+          ListFooterComponent={
+            isFetching ? <ActivityIndicator color={color.tint}/> : null
+          }
+          onEndReached={() => fetchNextPage()}
           renderItem={({ item }) => (
-            <PokemonCard id={item.id} name={item.name} style={{flex: 1/3 }}/>
+            <PokemonCard id={getPokemonId(item.url)} name={item.name} style={{flex: 1/3 }}/>
           )}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.url}
         />
 
       </Card>
