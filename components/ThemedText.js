@@ -3,8 +3,8 @@ import { useThemeColors } from "../hooks/useThemeColor";
 
 /**
  * @param {Object} Props - L'objet Texte
- * @param {string} Props.variant - Un variant 
- * @param {string} Props.color - Couleur du texte 
+ * @param {string} Props.variant - le font family, size
+ * @param {string} Props.color - le nom de la couleur du texte 
  */
 export function ThemedText(Props) {
     const { variant, color, style, ...rest } = Props;

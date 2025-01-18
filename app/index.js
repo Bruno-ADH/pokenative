@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 12,
-    paddingVertical: 8
+    paddingBottom: 8,
   },
   body: {
     flex: 1,
@@ -111,5 +111,6 @@ const styles = StyleSheet.create({
   search: {
     marginTop: Platform.OS === "web" ? 26 : 0,
     marginBottom: Platform.OS === "web" ? 10 : 0,
+    paddingHorizontal: 12,
   }
 })
