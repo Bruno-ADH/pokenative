@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import { Text, View, StyleSheet } from "react-native";
 import Animated, {
     Easing,
@@ -31,7 +31,9 @@ export default function Pokemon() {
 
     return (
         <View style={styles.container}>
+            <Link href="/about">
             <Text>A propos:  {params?.id}</Text>
+            </Link>
             <Animated.View style={[styles.box, animatedStyle]} />
         </View>
 
@@ -50,5 +52,6 @@ const styles = StyleSheet.create({
         width: 120,
         backgroundColor: '#b58df1',
         borderRadius: 20,
+        marginTop: 32
     },
 });

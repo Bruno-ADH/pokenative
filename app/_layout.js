@@ -1,13 +1,13 @@
 import react, { useEffect } from 'react'
 import { Stack, useRouter } from 'expo-router';
-import HomeIcon from "@/assets/home.svg";
-import home from "../assets/icon.png";
-import { TouchableOpacity } from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { View, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -29,7 +29,7 @@ useEffect(() => {
   }, [loaded]);
 
   if (!loaded) {
-    return null; 
+    return <StatusBar style="auto" backgroundColor='transparent'/>; 
   }
 
   return (
@@ -40,7 +40,29 @@ useEffect(() => {
         screenOptions={{
           headerShown: false
         }}
-      />
+      >
+        <Stack.Screen
+          name='about'
+          options={{
+            headerShown: true,
+            header: (props) => <SafeAreaView style={{
+              backgroundColor: "transparent",
+            }}>
+              <StatusBar style="auto" backgroundColor="blue"/>
+              <View style={{
+                backgroundColor: "blue",
+                width: "100%",
+                paddingVertical: 14,
+                paddingHorizontal: 6,
+                borderBottomLeftRadius: 24,
+                borderBottomRightRadius: 24
+              }}>
+                <Text>rrrrrrr</Text>
+              </View>
+            </SafeAreaView>
+          }}
+        />
+      </Stack>
     </SafeAreaProvider>
     </QueryClientProvider>
   );

@@ -19,9 +19,11 @@ export function PokemonCard(Props) {
             <Card style={[styles.card]}>
                 <ThemedText variant="caption" color="grayMedium" style={styles.id}>#{id?.toString()?.padStart(3, '0')}</ThemedText>
                 <Image
-                    source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png` }}
-                    width={72}
-                    height={72}
+                    source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png` }}         
+                    style={{
+                        width: 72, 
+                        height: 72
+                    }}
                 />
                 <ThemedText variant="body3" color="grayDark">{name}</ThemedText>
                 <View style={[styles.shadow, { backgroundColor: colors.grayBackground }]} />

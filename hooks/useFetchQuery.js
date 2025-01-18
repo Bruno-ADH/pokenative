@@ -1,10 +1,10 @@
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query"
-import { API_URL } from "@env"
+import { API_URL } from "@env";
 
 const endpoint = API_URL
 /**
  * @param {string} path -le chemin 
- * @returns {Object}
+ * @returns {Object} 
  */
 export function useFetchQuery(path) {
     return useQuery({
