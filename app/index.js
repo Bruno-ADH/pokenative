@@ -2,17 +2,16 @@ import react, { useEffect, useState } from 'react';
 import { Link, useRouter } from 'expo-router';
 import { View, Text, Button, TouchableOpacity, Image, StyleSheet, Dimensions, FlatList, ActivityIndicator, Platform } from 'react-native';
 import Pokeball from '@/assets/images/pokeball.svg'
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemedText } from '../components/ThemedText'
 import { useThemeColors } from '../hooks/useThemeColor';
 import { Card } from '../components/Card';
-import pokeball from '@/assets/images/pokeball.png'
 import { PokemonCard } from '../components/pokemon/PokemonCard';
 import { useFetchQuery, useInfiniteFetchQuery } from '../hooks/useFetchQuery';
 import { getPokemonId } from '../functions/pokemon';
 import { SearchBar } from '../components/SearchBar';
 import { Row } from '../components/Row';
 import { SortButton } from '../components/SortButton';
+import { RootView } from '../components/RootView';
 
 export default function Index() {
   const router = useRouter()
@@ -47,7 +46,7 @@ export default function Index() {
 
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: color?.tint }]}>
+    <RootView>
       <Row style={styles.header} gap={16}>
         <Pokeball/>
         <ThemedText variant="headline" color="grayLight">Pokédex</ThemedText>
@@ -83,15 +82,11 @@ export default function Index() {
         />
 
       </Card>
-    </SafeAreaView>
+    </RootView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 4
-  },
   header: {
     paddingHorizontal: 12,
     paddingBottom: 8,
