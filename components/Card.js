@@ -9,7 +9,7 @@ import { useThemeColors } from "../hooks/useThemeColor";
 export function Card (Props) {
     const color = useThemeColors()
     const { style, ...rest } = Props
-    return <View style={[style, styles, {backgroundColor: color.grayWhite}]} {...rest}/>
+    return <View style={[styles, {backgroundColor: color.grayWhite}, style]} {...rest}/>
 }
 
 const styles = {

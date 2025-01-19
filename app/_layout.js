@@ -38,7 +38,7 @@ useEffect(() => {
       <StatusBar style="auto"/>
       <Stack
         screenOptions={{
-          headerShown: false
+          headerShown: false,
         }}
       >
         <Stack.Screen

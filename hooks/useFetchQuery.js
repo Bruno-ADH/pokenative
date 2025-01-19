@@ -15,7 +15,6 @@ export function useFetchQuery(path, params) {
     return useQuery({
         queryKey: [localUrl],
         queryFn: async () => {
-            await wait(1)
             return fetch(localUrl, {
                 headers: {
                     Accept: 'application/json'
@@ -34,7 +33,6 @@ export function useInfiniteFetchQuery(path) {
         queryKey: [path],
         initialPageParam: endpoint + path,
         queryFn: async ({pageParam}) => {
-            await wait (1)
             return fetch(pageParam, {
                 headers: {
                     Accept: 'application/json'
