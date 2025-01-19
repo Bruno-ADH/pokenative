@@ -6,12 +6,17 @@ const endpoint = API_URL
  * @param {string} path -le chemin 
  * @returns {Object} 
  */
-export function useFetchQuery(path) {
+export function useFetchQuery(path, params) {
+    const localUrl = endpoint + Object.entries(params ?? {})
+        .reduce((acc, [key, value]) => 
+            acc.replaceAll(`[${key}]`, value)
+        , path)
+
     return useQuery({
-        queryKey: [path],
+        queryKey: [localUrl],
         queryFn: async () => {
             await wait(1)
-            return fetch(endpoint + path, {
+            return fetch(localUrl, {
                 headers: {
                     Accept: 'application/json'
                 }

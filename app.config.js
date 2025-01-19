@@ -7,11 +7,11 @@ export default {
     version: "1.0.0",
     scheme: "pokenativelink",
     orientation: "portrait",
-    icon: "./assets/images/pokeballSplash.png",
+    icon: "./assets/images/pokeSplash.png",
     userInterfaceStyle: "light",
     newArchEnabled: true,
     splash: {
-      image: "./assets/images/pokeballSplash.png",
+      image: "./assets/images/pokeSplash.png",
       resizeMode: "contain",
       backgroundColor: "#DC0A2D",
     },
