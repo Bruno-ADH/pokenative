@@ -29,7 +29,13 @@ export default {
     },
     plugins: [
       "expo-router",
-      "expo-font"
+      "expo-font",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
     ],
     extra: {
       apiUrl: process.env.API_URL
